@@ -26,3 +26,13 @@ pub fn part2(input: &str) -> impl Display {
 
 	totals.array_windows::<2>().filter(|[a, b]| b > a).count()
 }
+
+#[inline(never)]
+pub fn part2_alt(input: &str) -> impl Display {
+	let numbers = parse_input::<i64>(input);
+
+	numbers
+		.array_windows::<4>()
+		.filter(|[head, .., tail]| tail > head)
+		.count()
+}
