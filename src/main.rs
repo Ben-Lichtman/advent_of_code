@@ -28,7 +28,7 @@ fn main() {
 				]
 			}
 			{
-				"2021-1-2": year2021::day1::part2_alt,
+				"2021-1-2": year2021::day1::part2_alt2,
 				tests: [
 					{
 						name: "1",

@@ -28,11 +28,22 @@ pub fn part2(input: &str) -> impl Display {
 }
 
 #[inline(never)]
-pub fn part2_alt(input: &str) -> impl Display {
+pub fn part2_alt1(input: &str) -> impl Display {
 	let numbers = parse_input::<i64>(input);
 
 	numbers
 		.array_windows::<4>()
 		.filter(|[head, .., tail]| tail > head)
+		.count()
+}
+
+#[inline(never)]
+pub fn part2_alt2(input: &str) -> impl Display {
+	let numbers = parse_input::<i64>(input);
+
+	numbers
+		.iter()
+		.zip(numbers.iter().skip(3))
+		.filter(|(a, b)| b > a)
 		.count()
 }
