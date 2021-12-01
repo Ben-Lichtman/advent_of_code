@@ -1,4 +1,14 @@
+#![feature(bench_black_box)]
 #![feature(array_windows)]
+#![feature(array_chunks)]
+#![feature(portable_simd)]
+
+use std::{
+	fs::read_to_string,
+	hint::black_box,
+	simd::{isizex2, isizex4, masksizex4, usizex2, usizex8},
+	time::{Duration, Instant},
+};
 
 pub mod year2021;
 
@@ -28,7 +38,7 @@ fn main() {
 				]
 			}
 			{
-				"2021-1-2": year2021::day1::part2_alt2,
+				"2021-1-2": year2021::day1::part2_simd_w,
 				tests: [
 					{
 						name: "1",
@@ -45,6 +55,11 @@ fn main() {
 						",
 						output: "5",
 					}
+				]
+			}
+			{
+				"2021-1-2": year2021::day1::part2_simd,
+				tests: [
 				]
 			}
 		]
