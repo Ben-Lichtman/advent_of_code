@@ -3,9 +3,9 @@ use std::fmt::Display;
 fn parse_input(input: &str) -> Vec<(&str, i64)> {
 	input
 		.lines()
-		.map(|l| l.split(' '))
-		.flat_map(|mut split| split.next().zip(split.next()))
-		.flat_map(|(left, num)| num.parse::<i64>().ok().map(|x| (left, x)))
+		.map(str::split_whitespace)
+		.filter_map(|mut l| Some((l.next()?, l.next()?)))
+		.filter_map(|(w, n)| Some((w, n.parse::<i64>().ok()?)))
 		.collect::<Vec<_>>()
 }
 
