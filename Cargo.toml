@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 aoc_driver = "0.1.4"
+derive_more = "0.99.17"

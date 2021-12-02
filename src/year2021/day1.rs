@@ -1,9 +1,4 @@
-use core::num;
-use std::{
-	fmt::Display,
-	simd::{i64x8, masksizex8, usizex8},
-	str::FromStr,
-};
+use std::{fmt::Display, simd::i64x8, str::FromStr};
 
 fn parse_input<T: FromStr>(input: &str) -> Vec<T> {
 	input
