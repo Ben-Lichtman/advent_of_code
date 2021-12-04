@@ -11,25 +11,16 @@ fn main() {
 		input_dir: "input"
 		challenges: [
 			{
-				"2021-2-1": year2021::day2::part1,
-				tests: [
-					{
-						name: "1",
-						input: "
-forward 5
-down 5
-forward 8
-up 3
-down 8
-forward 2
-						",
-						output: "150",
-					}
-				]
+				"2021-3-2": year2021::day3::part2,
+
 			}
-			{
-				"2021-2-2": year2021::day2::part2,
-			}
+
 		]
 	}
 }
+
+/*
+			{
+				"2021-x-x": year2021::dayx::partx,
+			}
+*/
