@@ -1,26 +1,13 @@
-#![feature(bench_black_box)]
 #![feature(array_windows)]
 #![feature(array_chunks)]
 #![feature(portable_simd)]
 
-pub mod year2021;
+use aoc_driver::*;
+
+pub mod aoc2021;
+pub mod helpers;
 
 fn main() {
-	aoc_driver::aoc_complete! {
-		session_file: ".session.txt"
-		input_dir: "input"
-		challenges: [
-			{
-				"2021-3-2": year2021::day3::part2,
-
-			}
-
-		]
-	}
+	let session = std::fs::read_to_string(".session.txt").unwrap();
+	aoc_magic!(&session, 2021:3:1, aoc2021::day3::part1).unwrap();
 }
-
-/*
-			{
-				"2021-x-x": year2021::dayx::partx,
-			}
-*/
