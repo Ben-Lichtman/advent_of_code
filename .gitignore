@@ -2,3 +2,4 @@
 Cargo.lock
 /.session.txt
 /inputs
+/cache
