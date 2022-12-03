@@ -25,14 +25,9 @@ pub fn part1(i: &str) -> impl Display {
 pub fn part2(i: &str) -> impl Display {
 	i.split('\n')
 		.array_chunks::<3>()
-		.map(|group| {
-			let (a, b, c) = (
-				map_string(group[0]),
-				map_string(group[1]),
-				map_string(group[2]),
-			);
+		.map(|group| group.map(map_string))
+		.map(|[a, b, c]| {
 			let common = &(&a & &b) & &c;
-
 			common.into_iter().next().unwrap() as i64
 		})
 		.sum::<i64>()
