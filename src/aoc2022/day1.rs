@@ -1,5 +1,5 @@
-use crate::util::sorted_arr::{Max, SortedArr};
-use std::{cmp::Reverse, collections::BinaryHeap, fmt::Display};
+use crate::util::sorted_arr::SortedArr;
+use std::{cmp::Reverse, fmt::Display};
 
 pub fn part1(i: &str) -> impl Display {
 	i.split("\n\n")

@@ -23,4 +23,7 @@ fn main() {
 
 	aoc_magic!(&session, 2022:3:1, aoc2022::day3::part1).expect("==> 2022:3:1");
 	aoc_magic!(&session, 2022:3:2, aoc2022::day3::part2).expect("==> 2022:3:2");
+
+	aoc_magic!(&session, 2022:4:1, aoc2022::day4::part1).expect("==> 2022:4:1");
+	aoc_magic!(&session, 2022:4:2, aoc2022::day4::part2).expect("==> 2022:4:2");
 }
