@@ -1,9 +1,7 @@
 use std::fmt::Display;
 
-pub fn part1(i: &str) -> impl Display {
-	let (starter, instructions) = i.split_once("\n\n").unwrap();
-
-	let mut board = starter
+fn process_board(i: &str) -> Vec<Vec<char>> {
+	let mut board = i
 		.lines()
 		.map(|line| {
 			line.as_bytes()
@@ -21,6 +19,13 @@ pub fn part1(i: &str) -> impl Display {
 			.filter(|&(_, c)| c != ' ')
 			.for_each(|(i, c)| cols[i].push(c))
 	}
+	cols
+}
+
+pub fn part1(i: &str) -> impl Display {
+	let (starter, instructions) = i.split_once("\n\n").unwrap();
+
+	let mut cols = process_board(starter);
 
 	instructions
 		.lines()
@@ -54,24 +59,7 @@ pub fn part1(i: &str) -> impl Display {
 pub fn part2(i: &str) -> impl Display {
 	let (starter, instructions) = i.split_once("\n\n").unwrap();
 
-	let mut board = starter
-		.lines()
-		.map(|line| {
-			line.as_bytes()
-				.chunks(4)
-				.map(|chunk| chunk[1] as char)
-				.collect::<Vec<_>>()
-		})
-		.collect::<Vec<_>>();
-	board.pop();
-	let width = board[0].len();
-	let mut cols = vec![Vec::new(); width];
-	for row in board.into_iter().rev() {
-		row.into_iter()
-			.enumerate()
-			.filter(|&(_, c)| c != ' ')
-			.for_each(|(i, c)| cols[i].push(c))
-	}
+	let mut cols = process_board(starter);
 
 	instructions
 		.lines()
