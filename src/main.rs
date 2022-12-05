@@ -12,9 +12,6 @@ pub mod util;
 fn main() {
 	let session = std::fs::read_to_string(".session.txt").unwrap();
 
-	// let ans = aoc2022::day2::part1(&std::fs::read_to_string("inputs/2022/2.txt").unwrap());
-	// println!("{}", ans);
-
 	aoc_magic!(&session, 2022:1:1, aoc2022::day1::part1).expect("==> 2022:1:1");
 	aoc_magic!(&session, 2022:1:2, aoc2022::day1::part2).expect("==> 2022:1:2");
 
@@ -26,4 +23,12 @@ fn main() {
 
 	aoc_magic!(&session, 2022:4:1, aoc2022::day4::part1).expect("==> 2022:4:1");
 	aoc_magic!(&session, 2022:4:2, aoc2022::day4::part2).expect("==> 2022:4:2");
+
+	aoc_magic!(&session, 2022:5:1, aoc2022::day5::part1).expect("==> 2022:5:1");
+	aoc_magic!(&session, 2022:5:2, aoc2022::day5::part2).expect("==> 2022:5:2");
+
+	// let test_input = std::fs::read_to_string("test_input.txt").unwrap();
+	// println!("{:?}", test_input);
+	// let ans = aoc2022::day5::part1(&test_input);
+	// println!("{}", ans);
 }

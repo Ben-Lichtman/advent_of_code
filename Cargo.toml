@@ -4,4 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-aoc_driver = { path = "../aoc_driver/", features = ["local_cache"] }
+aoc_driver = { version = "0.3.4", features = ["local_cache"] }
+# aoc_driver = { path = "../aoc_driver/", features = ["local_cache"] }
