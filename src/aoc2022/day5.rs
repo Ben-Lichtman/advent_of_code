@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{convert::identity, fmt::Display};
 
 fn process_board(i: &str) -> Vec<Vec<char>> {
 	let mut board = i
@@ -47,7 +47,8 @@ pub fn part1(i: &str) -> impl Display {
 				.try_into()
 				.unwrap()
 		})
-		.for_each(|[count, from, to]: [_; 3]| {
+		.map(identity::<[_; 3]>)
+		.for_each(|[count, from, to]| {
 			let (col_from, col_to) = get_from_to(&mut cols, from - 1, to - 1);
 
 			let from_end = &col_from[col_from.len() - count..];
