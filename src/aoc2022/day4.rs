@@ -24,7 +24,7 @@ pub fn part2(i: &str) -> impl Display {
 			let r1 = a..=b;
 			let r2 = c..=d;
 
-			r1.contains(&c) || r1.contains(&d) || r2.contains(&a) || r2.contains(&b)
+			r1.contains(&c) || r2.contains(&a)
 		})
 		.count()
 }
