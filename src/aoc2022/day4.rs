@@ -22,11 +22,6 @@ pub fn part2(i: &str) -> impl Display {
 		})
 		.map(|v| v.try_into().unwrap())
 		.map(identity::<[_; 4]>)
-		.filter(|[a, b, c, d]| {
-			let r1 = a..=b;
-			let r2 = c..=d;
-
-			r1.contains(&c) || r2.contains(&a)
-		})
+		.filter(|[a, b, c, d]| (a..=b).contains(&c) || (c..=d).contains(&a))
 		.count()
 }
