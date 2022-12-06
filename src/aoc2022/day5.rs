@@ -1,24 +1,21 @@
 use std::{convert::identity, fmt::Display};
 
 fn process_board(i: &str) -> Vec<Vec<char>> {
-	let mut board = i
-		.lines()
-		.map(|line| {
-			line.as_bytes()
-				.chunks(4)
-				.map(|chunk| chunk[1] as char)
-				.collect::<Vec<_>>()
-		})
-		.collect::<Vec<_>>();
-	board.pop();
-	let width = board[0].len();
-	let mut cols = vec![Vec::new(); width];
-	for row in board.into_iter().rev() {
-		row.into_iter()
+	let line_length = i.find('\n').unwrap();
+	let boxes = (line_length + 1) / 4;
+	let mut cols = vec![Vec::new(); boxes];
+
+	i.lines().rev().skip(1).for_each(|line| {
+		line.as_bytes()
+			.chunks(4)
+			.map(|chunk| chunk[1] as char)
 			.enumerate()
 			.filter(|&(_, c)| c != ' ')
-			.for_each(|(i, c)| cols[i].push(c))
-	}
+			.for_each(|(i, c)| {
+				cols[i].push(c);
+			})
+	});
+
 	cols
 }
 
