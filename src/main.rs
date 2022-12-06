@@ -29,7 +29,10 @@ fn main() {
 	aoc_magic!(&session, 2022:5:1, aoc2022::day5::part1).expect("==> 2022:5:1");
 	aoc_magic!(&session, 2022:5:2, aoc2022::day5::part2).expect("==> 2022:5:2");
 
-	// let test_input = std::fs::read_to_string("inputs/2022/4.txt").unwrap();
-	// let ans = aoc2022::day4::part2(&test_input);
+	aoc_magic!(&session, 2022:6:1, aoc2022::day6::part1).expect("==> 2022:6:1");
+	aoc_magic!(&session, 2022:6:2, aoc2022::day6::part2).expect("==> 2022:6:2");
+
+	// let test_input = std::fs::read_to_string("inputs/2022/5.txt").unwrap();
+	// let ans = aoc2022::day5::part2(&test_input);
 	// println!("{}", ans);
 }
